@@ -1,30 +1,31 @@
-# 🎮 مولّد الألعاب الذكي — AI Game Generator
+# 🎮 AI Game Generator
 
-تطبيق React يستخدم Gemini AI و Google Search لبناء أي لعبة تطلبها فوراً.
+A React application that uses Gemini AI and Google Search to instantly generate any game you request.
 
 ---
 
-## 🚀 تشغيل المشروع
+## 🚀 Running the Project
 
-### المتطلبات
-- Node.js 16 أو أحدث
-- npm أو yarn
+### Requirements
 
-### الخطوات
+* Node.js 16 or higher
+* npm or yarn
+
+### Steps
 
 ```bash
-# 1. تثبيت المكتبات
+# 1. Install dependencies
 npm install
 
-# 2. تشغيل المشروع
+# 2. Start the project
 npm start
 ```
 
-سيفتح المتصفح تلقائياً على `http://localhost:3000`
+The browser will automatically open at `http://localhost:3000`
 
 ---
 
-## 📁 هيكل المشروع
+## 📁 Project Structure
 
 ```
 game-generator/
@@ -32,21 +33,21 @@ game-generator/
 │   └── index.html
 ├── src/
 │   ├── components/
-│   │   ├── HomeScreen.jsx        ← شاشة البحث
+│   │   ├── HomeScreen.jsx        ← Search screen
 │   │   ├── HomeScreen.module.css
-│   │   ├── LoadingScreen.jsx     ← شاشة التحميل
+│   │   ├── LoadingScreen.jsx     ← Loading screen
 │   │   ├── LoadingScreen.module.css
-│   │   ├── GameScreen.jsx        ← شاشة اللعبة
+│   │   ├── GameScreen.jsx        ← Game screen
 │   │   └── GameScreen.module.css
 │   ├── games/
-│   │   ├── index.js              ← تصدير الألعاب المدمجة
-│   │   ├── chess.js              ← شطرنج
-│   │   ├── snake.js              ← ثعبان
-│   │   └── tictactoe.js          ← تيك تاك تو
+│   │   ├── index.js              ← Game exports
+│   │   ├── chess.js              ← Chess game
+│   │   ├── snake.js              ← Snake game
+│   │   └── tictactoe.js         ← Tic Tac Toe game
 │   ├── hooks/
-│   │   └── useGameGenerator.js   ← منطق التوليد
+│   │   └── useGameGenerator.js   ← Generation logic
 │   ├── api.js                    ← Gemini + Google APIs
-│   ├── config.js                 ← مفاتيح API
+│   ├── config.js                 ← API keys
 │   ├── App.jsx
 │   ├── App.css
 │   └── index.js
@@ -55,32 +56,43 @@ game-generator/
 
 ---
 
-## 🔑 API Keys
+## 🔑 API Keys Setup
 
-الـ keys موجودة في `src/config.js`:
+You MUST create and configure your API keys inside `src/config.js`.
 
-| المفتاح | الاستخدام |
-|---------|-----------|
-| `GEMINI_KEY` | توليد المعلومات وكود اللعبة |
-| `GOOGLE_KEY` | البحث عن صور |
-| `SEARCH_CX`  | معرّف محرك البحث المخصص |
+Add the following code:
+
+```javascript
+export const GEMINI_KEY   = "";
+export const GOOGLE_KEY   = "";
+export const SEARCH_CX    = "";
+```
+
+### 🔒 Important
+
+* Do NOT run the project without filling these keys
+* These keys are required for:
+
+  * Gemini AI game generation
+  * Google image search
+  * Custom search engine functionality
 
 ---
 
-## 🎮 الألعاب المدمجة (بدون API)
+## 🎮 Built-in Games (No API required)
 
-| الاسم | الوصف |
-|-------|-------|
-| شطرنج | لعبة شطرنج كاملة |
-| ثعبان | لعبة Snake الكلاسيكية |
-| تيك تاك تو | لعبة X O |
+| Name        | Description        |
+| ----------- | ------------------ |
+| Chess       | Full chess game    |
+| Snake       | Classic Snake game |
+| Tic Tac Toe | X O game           |
 
 ---
 
-## 🛠️ البناء للإنتاج
+## 🛠️ Build for Production
 
 ```bash
 npm run build
 ```
 
-ينتج مجلد `build/` جاهز للرفع.
+This generates a `build/` folder ready for deployment.
